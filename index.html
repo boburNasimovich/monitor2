@@ -87,5 +87,28 @@
 
         </div>
     </div>
+    <script>
+  // Ekranni doim yoniq saqlash funksiyasi
+  async function keepScreenAlive() {
+    try {
+      if ('wakeLock' in navigator) {
+        const wakeLock = await navigator.wakeLock.request('screen');
+        console.log('Ekran doim yoniq rejimida');
+      }
+    } catch (err) {
+      console.log('Wake Lock xatosi:', err.name, err.message);
+    }
+  }
+
+  // Sayt yuklanganda ishga tushirish
+  keepScreenAlive();
+
+  // Sahifa yangilanganda yoki focus qaytganda ham ishlasin
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      keepScreenAlive();
+    }
+  });
+</script>
 </body>
 </html>
