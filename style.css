@@ -1,7 +1,5 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; padding: 0; box-sizing: border-box;
 }
 
 body {
@@ -11,41 +9,36 @@ body {
 }
 
 .slider {
-    width: 100vw;
-    height: 100vh;
+    width: 100vw; height: 100vh;
+    border: 10px solid #D4AF37;
     overflow: hidden;
 }
 
 .slides-container {
     display: flex;
     flex-direction: column;
-    height: 500%; /* 5 ta sahifa bo'lgani uchun */
-    animation: slideVertical 40s infinite; /* Sahifalar almashinuvi */
+    height: 500%; /* 5 ta blok uchun */
+    animation: slideVertical 30s cubic-bezier(0.85, 0, 0.15, 1) infinite;
 }
 
 .menu-page {
-    width: 100vw;
-    height: 100vh;
+    width: 100vw; height: 100vh;
     display: grid;
-    gap: 10px;
-    padding: 10px;
+    gap: 15px; /* Rasmlar orasidagi chiziq */
+    padding: 15px;
 }
 
-/* 2 ta mahsulot bo'lganda: Yonma-yon */
+/* --- SETKA SOZLAMALARI --- */
 .layout-2 {
     grid-template-columns: 1fr 1fr;
 }
 
-/* 3 ta mahsulot bo'lganda: Bittasi katta chapda, 2 tasi o'ngda */
 .layout-3 {
     grid-template-columns: 1.2fr 1fr;
     grid-template-rows: 1fr 1fr;
 }
-.layout-3 .big {
-    grid-row: span 2;
-}
+.layout-3 .big { grid-row: span 2; }
 
-/* 4 ta mahsulot bo'lganda: 2x2 setka */
 .layout-4 {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -53,53 +46,46 @@ body {
 
 .food-card {
     position: relative;
-    width: 100%;
-    height: 100%;
     border: 3px solid #D4AF37;
-    border-radius: 12px;
+    border-radius: 15px;
     overflow: hidden;
 }
 
 .food-card img {
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     object-fit: cover;
 }
 
 .info {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 30%, transparent);
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
+    bottom: 0; left: 0; width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 40%, transparent);
+    padding: 30px;
 }
 
 .info h2 {
     color: #D4AF37;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px #000;
 }
 
 .price {
     font-size: 2.5rem;
     background: #D4AF37;
     color: #000;
-    padding: 5px 15px;
-    border-radius: 8px;
-    width: fit-content;
-    font-weight: bold;
+    padding: 5px 20px;
+    border-radius: 10px;
+    font-weight: 900;
 }
 
-/* Animatsiya */
+/* 5 blok uchun animatsiya (100 / 5 = 20) */
 @keyframes slideVertical {
-    0%, 18% { transform: translateY(0); }
-    20%, 38% { transform: translateY(-20%); }
-    40%, 58% { transform: translateY(-40%); }
-    60%, 78% { transform: translateY(-60%); }
-    80%, 98% { transform: translateY(-80%); }
-    100% { transform: translateY(0); }
+    0%, 15% { transform: translateY(0); }
+    20%, 35% { transform: translateY(-20%); }
+    40%, 55% { transform: translateY(-40%); }
+    60%, 75% { transform: translateY(-60%); }
+    80%, 95% { transform: translateY(-80%); }
+    100% { transform: translateY(-80%); }
 }
